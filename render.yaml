@@ -1,6 +1,10 @@
 services:
   - type: web
-    name: numpy-mcq-bot
+    name: numpybot-mcq
     env: python
+    plan: free
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python bot.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
