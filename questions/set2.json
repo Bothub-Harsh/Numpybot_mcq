@@ -1,0 +1,32 @@
+[
+  {
+    "question": "What is NumPy?",
+    "options": [
+      "A database",
+      "A Python library for arrays",
+      "A web framework",
+      "A game engine"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function creates array?",
+    "options": [
+      "np.make()",
+      "np.array()",
+      "np.create()",
+      "np.build()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What does ndarray stand for?",
+    "options": [
+      "Normal Data",
+      "New Data",
+      "N-dimensional array",
+      "None"
+    ],
+    "answer": 2
+  }
+]
