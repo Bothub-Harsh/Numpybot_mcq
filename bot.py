@@ -152,11 +152,7 @@ if __name__ == "__main__":
     app.add_handler(CallbackQueryHandler(handle_set, pattern="^set_"))
     app.add_handler(CallbackQueryHandler(handle_answer, pattern="^ans_"))
 
-    PORT = int(os.environ.get("PORT", 10000))
-    WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
+    print("Bot running on Render...")
 
-    app.run_webhook(
-        listen="0.0.0.0",
-        port=PORT,
-        webhook_url=WEBHOOK_URL
-    )
+    app.run_polling()
+
