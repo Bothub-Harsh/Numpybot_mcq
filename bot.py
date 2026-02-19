@@ -145,6 +145,8 @@ async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
 PORT = int(os.environ.get("PORT", 10000))
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 
+import asyncio
+
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
 
@@ -154,5 +156,12 @@ if __name__ == "__main__":
 
     print("Bot running on Render...")
 
-    app.run_polling()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    loop.run_until_complete(app.initialize())
+    loop.run_until_complete(app.start())
+    loop.run_until_complete(app.updater.start_polling())
+
+    loop.run_forever()
 
