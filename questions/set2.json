@@ -1,32 +1,102 @@
 [
   {
-    "question": "What is NumPy?",
+    "question": "Which function generates random numbers between 0 and 1?",
     "options": [
-      "A database",
-      "A Python library for arrays",
-      "A web framework",
-      "A game engine"
+      "np.random.rand()",
+      "np.random.randint()",
+      "np.random.range()",
+      "np.random.array()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which function generates random integers within a given range?",
+    "options": [
+      "np.random.rand()",
+      "np.random.randint()",
+      "np.random.int()",
+      "np.random.number()"
     ],
     "answer": 1
   },
   {
-    "question": "Which function creates array?",
+    "question": "Which method returns the data type of array elements?",
     "options": [
-      "np.make()",
-      "np.array()",
-      "np.create()",
-      "np.build()"
+      "arr.type",
+      "arr.dtype",
+      "arr.datatype",
+      "arr.kind"
     ],
     "answer": 1
   },
   {
-    "question": "What does ndarray stand for?",
+    "question": "Which function combines two arrays vertically?",
     "options": [
-      "Normal Data",
-      "New Data",
-      "N-dimensional array",
-      "None"
+      "np.hstack()",
+      "np.vstack()",
+      "np.stackrow()",
+      "np.concat()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function combines two arrays horizontally?",
+    "options": [
+      "np.vstack()",
+      "np.hstack()",
+      "np.row_stack()",
+      "np.combine()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function is used to find the maximum value in an array?",
+    "options": [
+      "np.maximum()",
+      "np.max()",
+      "np.high()",
+      "np.top()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function is used to find the minimum value in an array?",
+    "options": [
+      "np.min()",
+      "np.minimum()",
+      "np.low()",
+      "np.bottom()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which function calculates the mean of array elements?",
+    "options": [
+      "np.average()",
+      "np.mean()",
+      "np.sum()",
+      "np.median()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function calculates the sum of array elements?",
+    "options": [
+      "np.add()",
+      "np.total()",
+      "np.sum()",
+      "np.plus()"
     ],
     "answer": 2
+  },
+  {
+    "question": "Which function returns the standard deviation of array elements?",
+    "options": [
+      "np.var()",
+      "np.std()",
+      "np.mean()",
+      "np.dev()"
+    ],
+    "answer": 1
   }
 ]
