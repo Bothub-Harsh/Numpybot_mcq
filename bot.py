@@ -75,9 +75,10 @@ async def handle_set(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     user_sessions[user_id] = {
         "set": set_number,
-        "questions": questions[:10],  # only 10 questions per quiz
+        "questions": questions[:10],
         "current": 0,
-        "score": 0
+        "score": 0,
+        "results": []   # <-- NEW (store each answer result)
     }
 
     await send_question(query)
@@ -117,40 +118,46 @@ async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     session = user_sessions[user_id]
 
     selected = int(query.data.split("_")[1])
-    current_q = session["questions"][session["current"]]
-    correct = current_q["answer"]
+    current_index = session["current"]
+    question_data = session["questions"][current_index]
 
-    selected_text = current_q["options"][selected]
-    correct_text = current_q["options"][correct]
+    correct = question_data["answer"]
+    correct_text = question_data["options"][correct]
+    selected_text = question_data["options"][selected]
 
-    # Prepare feedback message
+    # Check answer
     if selected == correct:
         session["score"] += 1
-        feedback = f"✅ Correct!\n\n✔️ {correct_text}"
+        result = f"Q{current_index+1} ✅\nCorrect: {correct_text}\n"
     else:
-        feedback = (
-            f"❌ Wrong!\n\n"
-            f"Your Answer: {selected_text}\n"
-            f"Correct Answer: ✅ {correct_text}"
+        result = (
+            f"Q{current_index+1} ❌\n"
+            f"Your: {selected_text}\n"
+            f"Correct: {correct_text}\n"
         )
+
+    # Store result
+    session["results"].append(result)
 
     session["current"] += 1
 
-    # If quiz finished
+    # Quiz Finished
     if session["current"] >= 10:
         score = session["score"]
         set_number = session["set"]
 
         save_score(user_id, set_number, score)
 
+        full_review = "\n".join(session["results"])
+
         await query.edit_message_text(
-            feedback + "\n\n"
             f"🏁 Quiz Finished!\n\n"
-            f"📊 Your Score: {score}/10\n\n"
+            f"{full_review}\n"
+            f"📊 Final Score: {score}/10\n\n"
             f"Use /start to try another set."
         )
+
     else:
-        await query.edit_message_text(feedback)
         await send_question(query)
 
 
