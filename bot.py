@@ -117,13 +117,26 @@ async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     session = user_sessions[user_id]
 
     selected = int(query.data.split("_")[1])
-    correct = session["questions"][session["current"]]["answer"]
+    current_q = session["questions"][session["current"]]
+    correct = current_q["answer"]
 
+    selected_text = current_q["options"][selected]
+    correct_text = current_q["options"][correct]
+
+    # Prepare feedback message
     if selected == correct:
         session["score"] += 1
+        feedback = f"✅ Correct!\n\n✔️ {correct_text}"
+    else:
+        feedback = (
+            f"❌ Wrong!\n\n"
+            f"Your Answer: {selected_text}\n"
+            f"Correct Answer: ✅ {correct_text}"
+        )
 
     session["current"] += 1
 
+    # If quiz finished
     if session["current"] >= 10:
         score = session["score"]
         set_number = session["set"]
@@ -131,11 +144,13 @@ async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
         save_score(user_id, set_number, score)
 
         await query.edit_message_text(
-            f"✅ Quiz Finished!\n\n"
+            feedback + "\n\n"
+            f"🏁 Quiz Finished!\n\n"
             f"📊 Your Score: {score}/10\n\n"
             f"Use /start to try another set."
         )
     else:
+        await query.edit_message_text(feedback)
         await send_question(query)
 
 
