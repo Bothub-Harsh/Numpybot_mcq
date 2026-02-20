@@ -1,32 +1,102 @@
 [
   {
-    "question": "What is NumPy?",
+    "question": "Which function calculates the variance of array elements?",
     "options": [
-      "A database",
-      "A Python library for arrays",
-      "A web framework",
-      "A game engine"
+      "np.std()",
+      "np.var()",
+      "np.mean()",
+      "np.diff()"
     ],
     "answer": 1
   },
   {
-    "question": "Which function creates array?",
+    "question": "Which function returns the median of array elements?",
     "options": [
-      "np.make()",
-      "np.array()",
-      "np.create()",
-      "np.build()"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "What does ndarray stand for?",
-    "options": [
-      "Normal Data",
-      "New Data",
-      "N-dimensional array",
-      "None"
+      "np.middle()",
+      "np.mean()",
+      "np.median()",
+      "np.center()"
     ],
     "answer": 2
+  },
+  {
+    "question": "Which function sorts a NumPy array?",
+    "options": [
+      "np.order()",
+      "np.sort()",
+      "np.arrange()",
+      "np.sequence()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function returns unique elements from an array?",
+    "options": [
+      "np.unique()",
+      "np.distinct()",
+      "np.remove_duplicates()",
+      "np.set()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which function is used to change the data type of an array?",
+    "options": [
+      "arr.change_type()",
+      "arr.astype()",
+      "arr.convert()",
+      "np.typecast()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which operator performs element-wise multiplication?",
+    "options": [
+      "+",
+      "*",
+      "@",
+      "//"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which operator is used for matrix multiplication in NumPy?",
+    "options": [
+      "*",
+      "@",
+      "#",
+      "&"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which function creates an identity matrix?",
+    "options": [
+      "np.eye()",
+      "np.identity_matrix()",
+      "np.diagonal()",
+      "np.unit()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which function flattens a multi-dimensional array?",
+    "options": [
+      "arr.flatten()",
+      "arr.collapse()",
+      "np.flat()",
+      "np.reshape_flat()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which attribute gives the number of dimensions of an array?",
+    "options": [
+      "arr.size",
+      "arr.ndim",
+      "arr.shape",
+      "arr.length"
+    ],
+    "answer": 1
   }
 ]
